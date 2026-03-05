@@ -1,11 +1,11 @@
-import { BiSun } from "react-icons/bi"; 
-import { FaRegMoon } from "react-icons/fa"; 
-import { FiExternalLink } from "react-icons/fi"; 
-import { BsDownload } from "react-icons/bs"; 
-import { BsInstagram } from "react-icons/bs"; 
-import { BsLinkedin } from "react-icons/bs"; 
-import { BsFacebook } from "react-icons/bs"; 
-import { AiOutlineGithub } from "react-icons/ai"; 
+import { BiSun } from "react-icons/bi";
+import { FaRegMoon } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
+import { BsDownload } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
+import { BsLinkedin } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
+import { AiOutlineGithub } from "react-icons/ai";
 import React, { useState, useEffect } from 'react';
 
 import { RiTailwindCssFill } from "react-icons/ri";
@@ -13,6 +13,7 @@ import { FaReact, FaNodeJs } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 
 import dicoding from "@/../public/certificate/dicoding.png"
+import portfolio from "@/assets/img/portfolio.png"
 import { Link } from 'react-router';
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
     }, [darkMode]);
 
     const projects = [
-        { id: 1, title: "SmarterTrading411", category: "Web Design", img: "https://placehold.co/600x400" },
+        { id: 1, title: "Portfolio Website", category: "Web App", link: "https://github.com/AbiPasundan/portfolio", img: portfolio },
     ];
 
     const skills = [
@@ -145,12 +146,14 @@ const App = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {projects.map((project) => (
                                     <div key={project.id} className="group relative overflow-hidden rounded-3xl aspect-4/3 bg-slate-200 dark:bg-slate-800">
-                                        <img src={project.img} alt={project.title} className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:scale-110" />
-                                        <div className="absolute inset-0 bg-yellow-400/90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
-                                            <h3 className="text-slate-900 text-xl font-bold">{project.title}</h3>
-                                            <p className="text-slate-800 text-sm mb-4">{project.category}</p>
-                                            <FiExternalLink className="text-slate-900" />
-                                        </div>
+                                        <a href={project.link}>
+                                            <img src={project.img} alt={project.title} className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:scale-110" />
+                                            <div className="absolute inset-0 bg-yellow-400/90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
+                                                <h3 className="text-slate-900 text-xl font-bold">{project.title}</h3>
+                                                <p className="text-slate-800 text-sm mb-4">{project.category}</p>
+                                                <FiExternalLink className="text-slate-900" />
+                                            </div>
+                                        </a>
                                     </div>
                                 ))}
                             </div>

@@ -151,7 +151,7 @@ const ContactPage = () => {
         </div>
 
         <footer className="pb-12 text-center text-slate-400 text-sm">
-          © Victor Alvarado. 2026 All rights reserved
+          © Wildan Nursyamsi. 2026 All rights reserved
         </footer>
       </div>
     </div>
