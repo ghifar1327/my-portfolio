@@ -1,3 +1,4 @@
+
 import { BiSun } from "react-icons/bi";
 import { FaRegMoon } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
@@ -11,6 +12,20 @@ import React, { useState, useEffect } from 'react';
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
+import { SiSwagger } from "react-icons/si";
+import { DiPostgresql } from "react-icons/di";
+import { SiMxlinux } from "react-icons/si"; 
+import { FaLinux } from "react-icons/fa"; 
+import { SiRedux } from "react-icons/si"; 
+import { SiRedis } from "react-icons/si"; 
+import { GrDocker } from "react-icons/gr"; 
+import { SiKde } from "react-icons/si"; 
+import { TbBrandVscode } from "react-icons/tb"; 
+import { DiCss3 } from "react-icons/di"; 
+import { AiOutlineHtml5 } from "react-icons/ai"; 
+import { FaBootstrap } from "react-icons/fa"; 
+
+
 
 import dicoding from "@/../public/certificate/dicoding.png"
 import portfolio from "@/assets/img/portfolio.png"
@@ -33,12 +48,29 @@ const App = () => {
     ];
 
     const skills = [
-        { name: 'React', level: 'Intermediate', icon: <FaReact /> },
+        { name: 'HTML', level: 'Expert', icon: <AiOutlineHtml5 /> },
+        { name: 'CSS', level: 'Expert', icon: <DiCss3 /> },
+        { name: 'Bootstrap', level: 'Expert', icon: <FaBootstrap /> },
         { name: 'Tailwind', level: 'Expert', icon: <RiTailwindCssFill /> },
+        { name: 'React', level: 'Intermediate', icon: <FaReact /> },
         { name: 'Node.js', level: 'Intermediate', icon: <FaNodeJs /> },
+        
         { name: 'Go', level: 'Intermediate', icon: <FaGolang /> },
+        { name: 'Swagger', level: 'Intermediate', icon: <SiSwagger /> },
+        { name: 'Postgresql', level: 'Intermediate', icon: <DiPostgresql /> },
+        
+        { name: 'Linux', level: 'Intermediate', icon: <FaLinux /> },
+        { name: 'MXLinux', level: 'Intermediate', icon: <SiMxlinux /> },
+        { name: 'Docker', level: 'Intermediate', icon: <GrDocker /> },
+        { name: 'Redis', level: 'Intermediate', icon: <SiRedis /> },
+        { name: 'Redux', level: 'Intermediate', icon: <SiRedux /> },
+        
+        { name: 'Vscode', level: 'Intermediate', icon: <TbBrandVscode /> },
+        { name: 'KDE Plasma', level: 'Intermediate', icon: <SiKde /> },
+
     ];
 
+    
     const certificates = [
         {
             id: 1,
