@@ -1,5 +1,12 @@
+import { BiSun } from "react-icons/bi"; 
+import { FaRegMoon } from "react-icons/fa"; 
+import { FiExternalLink } from "react-icons/fi"; 
+import { BsDownload } from "react-icons/bs"; 
+import { BsInstagram } from "react-icons/bs"; 
+import { BsLinkedin } from "react-icons/bs"; 
+import { BsFacebook } from "react-icons/bs"; 
+import { AiOutlineGithub } from "react-icons/ai"; 
 import React, { useState, useEffect } from 'react';
-import { Github, Twitter, Linkedin, Youtube, Download, Moon, Sun, ExternalLink, Facebook, Instagram } from 'lucide-react';
 
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaReact, FaNodeJs } from "react-icons/fa";
@@ -65,7 +72,7 @@ const App = () => {
             <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-xl overflow-hidden relative border border-slate-200 dark:border-slate-800">
 
                 <button onClick={() => setDarkMode(!darkMode)} className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-transform cursor-pointer" >
-                    {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
+                    {darkMode ? <BiSun size={20} className="text-yellow-400" /> : <FaRegMoon size={20} className="text-slate-600" />}
                 </button>
 
                 <div className="flex flex-col items-center pt-12 pb-8 px-6 text-center">
@@ -80,16 +87,16 @@ const App = () => {
 
                     <div className="flex gap-4 mt-4 text-slate-400">
                         <a href="https://github.com/AbiPasundan">
-                            <Github className="hover:text-black dark:hover:text-white cursor-pointer" size={20} />
+                            <AiOutlineGithub className="hover:text-black dark:hover:text-white cursor-pointer" size={20} />
                         </a>
                         <a href="#">
-                            <Facebook className="hover:text-blue-400 cursor-pointer" size={20} />
+                            <BsFacebook className="hover:text-blue-400 cursor-pointer" size={20} />
                         </a>
                         <a href="https://linkedin.com/in/muhamad-wildan-nursyamsi">
-                            <Linkedin className="hover:text-blue-600 cursor-pointer" size={20} />
+                            <BsLinkedin className="hover:text-blue-600 cursor-pointer" size={20} />
                         </a>
                         <a href="#">
-                            <Instagram className="hover:text-red-500 cursor-pointer" size={20} />
+                            <BsInstagram className="hover:text-red-500 cursor-pointer" size={20} />
                         </a>
                     </div>
 
@@ -110,7 +117,7 @@ const App = () => {
 
                     <div className="flex gap-4 mt-10">
                         <button className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-4 px-8 rounded-2xl transition-all shadow-lg shadow-yellow-400/20 active:scale-95">
-                            Download CV <Download size={18} />
+                            Download CV <BsDownload size={18} />
                         </button>
                         <Link to="/contact" className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold py-4 px-8 rounded-2xl transition-all active:scale-95 border border-transparent dark:border-slate-700">
                             Contact me
@@ -142,7 +149,7 @@ const App = () => {
                                         <div className="absolute inset-0 bg-yellow-400/90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
                                             <h3 className="text-slate-900 text-xl font-bold">{project.title}</h3>
                                             <p className="text-slate-800 text-sm mb-4">{project.category}</p>
-                                            <ExternalLink className="text-slate-900" />
+                                            <FiExternalLink className="text-slate-900" />
                                         </div>
                                     </div>
                                 ))}
@@ -189,7 +196,7 @@ const App = () => {
                                             className="absolute inset-0 bg-slate-900/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                             <a href={cert.credential} className="bg-white text-slate-900 font-bold py-2 px-6 rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
                                                 View Certificate
-                                                <ExternalLink size={16} />
+                                                <FiExternalLink size={16} />
                                             </a>
                                         </div>
                                     </a>
