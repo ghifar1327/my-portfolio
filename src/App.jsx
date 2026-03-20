@@ -29,7 +29,6 @@ import { FaBootstrap } from "react-icons/fa";
 
 import dicoding1 from "@/assets/img/certificate/dicoding.png"
 import dicoding2 from "@/assets/img/certificate/dicoding2.jpeg"
-import portfolio from "@/assets/img/portfolio.png"
 import { Link } from 'react-router';
 
 const App = () => {
@@ -45,7 +44,32 @@ const App = () => {
     }, [darkMode]);
 
     const projects = [
-        { id: 1, title: "Portfolio Website", category: "Web App", link: "https://github.com/AbiPasundan/portfolio", img: portfolio },
+        // { id: 1, title: "Tickizt Movies", category: "Web App", link: "https://github.com/ghifar1327/koda-b5-tickitz", img: },
+        // { id: 2, title: "Coffee Shop", category: "Web App", link: "https://github.com/ghifar1327/koda-b6-react", img: "/project/coffee-shop.png"},
+        {
+            id: 1,
+            title: "booking cinema tickets",
+            issuer: "Tickizt Movies - Frontend App",
+            date: "2025",
+            img: "/project/movies.jpeg",
+            credential:"https://github.com/ghifar1327/koda-b5-tickitz"
+        },
+         {
+            id: 2,
+            title: "ordering food menu",
+            issuer: "Coffee Shop - Frontend App",
+            date: "2026",
+            img: "/project/coffee-shop.png",
+            credential:"https://github.com/ghifar1327/koda-b6-react"
+        },
+        {
+            id: 3,
+            title: "ordering food menu",
+            issuer: "Coffee Shop - Backend App",
+            date: "2026",
+            img: "/project/coffee-shop.png",
+            credential:"https://github.com/ghifar1327/koda-b6-backend"
+        },
     ];
 
     const skills = [
@@ -120,12 +144,12 @@ const App = () => {
                 <div className="flex flex-col items-center pt-12 pb-8 px-6 text-center">
                     <div className="relative group">
                         <div className="w-32 h-32 rounded-full border-4 border-yellow-400 p-1 overflow-hidden">
-                            <img src="https://i.pravatar.cc/300" alt="Wildan Nursyamsi" className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500" />
+                            <img src="/ghifar1.jpeg" alt="Muhammad Ghifar Ramdahani" className="w-full h-full object-cover rounded-full group-hover:grayscale-100 transition-all duration-500" />
                         </div>
                     </div>
 
-                    <h1 className="mt-4 text-3xl font-bold tracking-tight">Wildan Nursyamsi</h1>
-                    <p className="text-slate-500 dark:text-slate-400 font-medium">Software Engineer</p>
+                    <h1 className="mt-4 text-3xl font-bold tracking-tight">Muhammad Ghifar Ramdhani</h1>
+                    <p className="text-slate-500 dark:text-slate-400 font-medium">Fullstack Web Developer</p>
 
                     <div className="flex gap-4 mt-4 text-slate-400">
                         <a href="https://github.com/AbiPasundan">
@@ -144,15 +168,15 @@ const App = () => {
 
                     <div className="grid grid-cols-3 gap-8 mt-10 w-full max-w-lg">
                         <div>
-                            <p className="text-xl font-bold">7</p>
+                            <p className="text-xl font-bold">1</p>
                             <p className="text-xs text-slate-500 uppercase tracking-wider">Years of work<br />experience</p>
                         </div>
                         <div>
-                            <p className="text-xl font-bold">50+</p>
+                            <p className="text-xl font-bold">2</p>
                             <p className="text-xs text-slate-500 uppercase tracking-wider">Completed<br />projects</p>
                         </div>
                         <div>
-                            <p className="text-xl font-bold">20+</p>
+                            <p className="text-xl font-bold">1</p>
                             <p className="text-xs text-slate-500 uppercase tracking-wider">Satisfied<br />customers</p>
                         </div>
                     </div>
@@ -170,7 +194,7 @@ const App = () => {
                 <div className="px-8 pb-12">
                     <div className="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl mb-8 max-w-md mx-auto">
                         <button onClick={() => setActiveTab('portfolio')} className={`flex-1 py-3 rounded-xl transition-all font-semibold ${activeTab === 'portfolio' ? 'bg-white dark:bg-slate-700 shadow-md' : 'text-slate-500'}`} >
-                            Portfolio
+                            Projects
                         </button>
                         <button onClick={() => setActiveTab('skills')} className={`flex-1 py-3 rounded-xl transition-all font-semibold ${activeTab === 'skills' ? 'bg-white dark:bg-slate-700 shadow-md' : 'text-slate-500'}`} >
                             Skills
@@ -184,18 +208,36 @@ const App = () => {
 
 
                         {activeTab === 'portfolio' && (
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {projects.map((project) => (
-                                    <div key={project.id} className="group relative overflow-hidden rounded-3xl aspect-4/3 bg-slate-200 dark:bg-slate-800">
-                                        <a href={project.link}>
-                                            <img src={project.img} alt={project.title} className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:scale-110" />
-                                            <div className="absolute inset-0 bg-yellow-400/90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
-                                                <h3 className="text-slate-900 text-xl font-bold">{project.title}</h3>
-                                                <p className="text-slate-800 text-sm mb-4">{project.category}</p>
-                                                <FiExternalLink className="text-slate-900" />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in duration-500">
+                                {projects.map((prj) => (
+                                    <a href={prj.credential} key={prj.id}
+                                        className="group relative bg-slate-50 dark:bg-slate-800/50 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                                        <div className="aspect-4/3 overflow-hidden">
+                                            <img src={prj.img} alt={prj.title}
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                        </div>
+
+                                        <div className="p-5">
+                                            <div className="flex justify-between items-start mb-2">
+                                                <h3 className="font-bold text-lg leading-tight">{prj.title}</h3>
+                                                <span className="text-xs font-bold bg-yellow-400 text-slate-900 px-2 py-1 rounded-lg">
+                                                    {prj.date}
+                                                </span>
                                             </div>
-                                        </a>
-                                    </div>
+                                            <p className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+                                                {prj.issuer}
+                                            </p>
+                                        </div>
+
+                                        <div
+                                            className="absolute inset-0 bg-slate-900/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <a href={prj.credential} className="bg-white text-slate-900 font-bold py-2 px-6 rounded-xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                                                View Github Repository
+                                                <FiExternalLink size={16} />
+                                            </a>
+                                        </div>
+                                    </a>
                                 ))}
                             </div>
                         )}
@@ -247,11 +289,8 @@ const App = () => {
                                 ))}
                             </div>
                         )}
-
-
-
                         <footer className="mt-16 text-center text-slate-400 text-sm">
-                            © Wildan Nursyamsi. 2026 All rights reserved
+                            © Muhammad Ghifar Ramdhani. 2026 All rights reserved
                         </footer>
                     </div>
 
