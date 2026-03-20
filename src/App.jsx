@@ -26,9 +26,6 @@ import { AiOutlineHtml5 } from "react-icons/ai";
 import { FaBootstrap } from "react-icons/fa"; 
 
 
-
-import dicoding1 from "@/assets/img/certificate/dicoding.png"
-import dicoding2 from "@/assets/img/certificate/dicoding2.jpeg"
 import { Link } from 'react-router';
 
 const App = () => {
@@ -44,8 +41,6 @@ const App = () => {
     }, [darkMode]);
 
     const projects = [
-        // { id: 1, title: "Tickizt Movies", category: "Web App", link: "https://github.com/ghifar1327/koda-b5-tickitz", img: },
-        // { id: 2, title: "Coffee Shop", category: "Web App", link: "https://github.com/ghifar1327/koda-b6-react", img: "/project/coffee-shop.png"},
         {
             id: 1,
             title: "booking cinema tickets",
@@ -152,16 +147,16 @@ const App = () => {
                     <p className="text-slate-500 dark:text-slate-400 font-medium">Fullstack Web Developer</p>
 
                     <div className="flex gap-4 mt-4 text-slate-400">
-                        <a href="https://github.com/AbiPasundan">
+                        <a href="https://github.com/ghifar1327">
                             <AiOutlineGithub className="hover:text-black dark:hover:text-white cursor-pointer" size={20} />
                         </a>
-                        <a href="#">
+                        <a href="https://web.facebook.com/muhammad.g.ramdhani.543">
                             <BsFacebook className="hover:text-blue-400 cursor-pointer" size={20} />
                         </a>
-                        <a href="https://linkedin.com/in/muhamad-wildan-nursyamsi">
+                        <a href="https://www.linkedin.com/in/muhammad-ghifar-ramdhani/">
                             <BsLinkedin className="hover:text-blue-600 cursor-pointer" size={20} />
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/givar_r/">
                             <BsInstagram className="hover:text-red-500 cursor-pointer" size={20} />
                         </a>
                     </div>
