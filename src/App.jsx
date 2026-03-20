@@ -176,7 +176,7 @@ const App = () => {
                             <p className="text-xs text-slate-500 uppercase tracking-wider">Completed<br />projects</p>
                         </div>
                         <div>
-                            <p className="text-xl font-bold">1</p>
+                            <p className="text-xl font-bold">2</p>
                             <p className="text-xs text-slate-500 uppercase tracking-wider">Satisfied<br />customers</p>
                         </div>
                     </div>
