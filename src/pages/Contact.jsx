@@ -7,10 +7,12 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFillSendFill } from "react-icons/bs";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
@@ -22,8 +24,24 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setLoading(true);
+
+    emailjs.sendForm(
+      'service_ikeqtbm',
+      'template_4pycajo',  
+      e.target,
+      'nR9iMBkpboGcs-Nu2'  
+    )
+    .then(() => {
+      setIsSubmitted(true);
+      setLoading(false);
+      e.target.reset();
+    })
+    .catch((err) => {
+      console.error(err);
+      setLoading(false);
+      alert("Gagal mengirim email");
+    });
   };
 
   return (
@@ -56,27 +74,27 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
             <div className="space-y-6">
-              <div className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border border-slate-100 dark:border-slate-800">
+              <div className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border">
                 <div className="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-slate-900 mb-4">
                   <AiOutlineMail size={24} />
                 </div>
                 <h3 className="font-bold text-lg">Email Me</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">victor.alvarado@example.com</p>
+                <p className="text-sm text-slate-500 mt-1">ghifarom@gmail.com</p>
               </div>
 
-              <div className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border border-slate-100 dark:border-slate-800">
+              <div className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border">
                 <div className="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-slate-900 mb-4">
                   <BiMap size={24} />
                 </div>
                 <h3 className="font-bold text-lg">Location</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Bandung, West Java, ID</p>
+                <p className="text-sm text-slate-500 mt-1">Karawang, West Java</p>
               </div>
 
-              <div className="flex justify-center lg:justify-start gap-4 pt-4">
-                <a href='https://linkedin.com/in/muhamad-wildan-nursyamsi' className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
+              <div className="flex gap-4 pt-4">
+                <a href='https://www.linkedin.com/in/muhammad-ghifar-ramdhani/' className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900">
                   <AiFillLinkedin size={20} />
                 </a>
-                <a href='https://github.com/AbiPasundan' className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
+                <a href='https://github.com/ghifar1327' className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900">
                   <BsGithub size={20} />
                 </a>
               </div>
@@ -84,65 +102,30 @@ const ContactPage = () => {
 
             <div className="lg:col-span-2">
               {isSubmitted ? (
-                <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-green-50 dark:bg-green-900/20 rounded-3xl border border-green-100 dark:border-green-800">
+                <div className="text-center p-8 bg-green-100 rounded-3xl">
                   <h3 className="text-2xl font-bold">Message Sent!</h3>
-                  <p className="text-slate-500 dark:text-slate-400 mt-2">Terima kasih, Victor akan segera menghubungi Anda.</p>
-                  <button
-                    onClick={() => setIsSubmitted(false)}
-                    className="mt-6 text-green-600 dark:text-green-400 font-semibold underline"
-                  >
-                    Send another message
-                  </button>
+                  <p className="mt-2">Email berhasil dikirim 🚀</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-semibold ml-1">Your Name</label>
-                      <input
-                        required
-                        type="text"
-                        placeholder="John Doe"
-                        className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-semibold ml-1">Email Address</label>
-                      <input
-                        required
-                        type="email"
-                        placeholder="john@example.com"
-                        className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold ml-1">Subject</label>
-                    <input
-                      type="text"
-                      placeholder="Project Inquiry"
-                      className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
-                    />
-                  </div>
+                  <input name="user_name" required placeholder="Your Name" className="w-full p-4 rounded-2xl border" />
 
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold ml-1">Message</label>
-                    <textarea
-                      required
-                      rows="4"
-                      placeholder="Tell me about your project..."
-                      className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all resize-none"
-                    ></textarea>
-                  </div>
+                  <input name="user_email" required type="email" placeholder="Email" className="w-full p-4 rounded-2xl border" />
+
+                  <input name="subject" placeholder="Subject" className="w-full p-4 rounded-2xl border" />
+
+                  <textarea name="message" required placeholder="Message..." className="w-full p-4 rounded-2xl border"></textarea>
 
                   <button
                     type="submit"
-                    className="w-full md:w-auto flex items-center justify-center gap-3 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-4 px-10 rounded-2xl transition-all shadow-lg shadow-yellow-400/20 active:scale-95 group"
+                    disabled={loading}
+                    className="w-full flex justify-center items-center gap-2 bg-yellow-400 py-3 rounded-2xl font-bold"
                   >
-                    Send Message
-                    <BsFillSendFill size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    {loading ? "Sending..." : "Send Message"}
+                    <BsFillSendFill />
                   </button>
+
                 </form>
               )}
             </div>
@@ -151,7 +134,7 @@ const ContactPage = () => {
         </div>
 
         <footer className="pb-12 text-center text-slate-400 text-sm">
-          © Wildan Nursyamsi. 2026 All rights reserved
+          ©Muhammad Ghifar Ramdhani 2026 All rights reserved
         </footer>
       </div>
     </div>
