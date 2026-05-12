@@ -117,12 +117,20 @@ const App = () => {
             credential: "https://www.codepolitan.com/c/YNQDUBZ/"
         },
         {
-            id: 3,
+            id: 4,
             title: "React.js - Bagaimana React.js Bekerja di Balik Layar dalam program",
             issuer: "CODEPOLITAN",
             date: "2026",
             img: "/certificate/certificate4.png",
             credential: "https://www.codepolitan.com/c/IYDEJSD/"
+        },
+        {
+            id: 5,
+            title: "Bootcamp Fullstack Web Development",
+            issuer: "Koda Tech Academy",
+            date: "2026",
+            img: "/certificate/certificate5.png",
+            credential: "https://drive.google.com/file/d/1zagHcTVCF3pl7P0wfvqzKmkgJ6oKRaCU/view?usp=drive_link"
         },
     ];
 
